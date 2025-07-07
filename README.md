@@ -18,6 +18,7 @@ A scalable, production-ready Node.js backend built with:
 - Modular folder structure
 - Full CRUD support via `gen-entity` script
 - Type-safe models using `zod`
+- Validation with `zod`
 - PostgreSQL integration with Docker
 - Environment variable support via `.env`
 - Prettier + Husky + lint-staged for formatting
@@ -82,11 +83,37 @@ Create full-featured CRUD for any model:
 ```json
 // scripts/entity.config.json
 {
-  "entity": "user",
+  "entity": "staff",
   "fields": {
-    "id": "number",
-    "name": "string",
-    "email": "string"
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "branch_id": {
+      "type": "enum",
+      "values": ["karkala", "udupi", "manipal"]
+    },
+    "role": {
+      "type": "enum",
+      "values": ["staff", "admin", "dev"]
+    },
+    "is_deleted": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "timestamp"
+    },
+    "updated_at": {
+      "type": "timestamp"
+    }
   }
 }
 ```
@@ -106,6 +133,7 @@ This generates:
 - `query`
 - `route`
 - `swagger`
+- `validation`
 - `SQL migration`
 
 ---
@@ -152,6 +180,10 @@ Pre-commit formatting is handled by:
 - lint-staged
 - prettier
 
+```bash
+npm run prepare
+```
+
 No unformatted code gets committed.
 
 ---
@@ -175,6 +207,7 @@ src/
 ├── routes/          # Express routers
 └── docs/            # Swagger Route Documentation
 ├── services/        # Business logic layer
+├── validation/      # Request body validation
 └── index.ts         # Entry point
 ```
 
