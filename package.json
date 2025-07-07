@@ -1,0 +1,48 @@
+{
+  "name": "template-express-app",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev-up": "docker compose up --build -d",
+    "dev-down": "docker compose down",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "gen-entity": "ts-node scripts/gen-entity.ts scripts/entity.config.json",
+    "migrate": "ts-node scripts/run-migrations.ts",
+    "build": "tsc",
+    "prepare": "husky",
+    "type-check": "tsc --noEmit"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.5.0",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "uuid": "^11.1.0",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^20.10.5",
+    "@types/pg": "^8.15.4",
+    "@types/swagger-ui-express": "^4.1.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  }
+}

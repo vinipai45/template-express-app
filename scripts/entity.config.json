@@ -1,0 +1,34 @@
+{
+  "entity": "staff",
+  "fields": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "branch_id": {
+      "type": "enum",
+      "values": ["karkala", "udupi", "manipal"]
+    },
+    "role": {
+      "type": "enum",
+      "values": ["staff", "admin", "dev"]
+    },
+    "is_deleted": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "timestamp"
+    },
+    "updated_at": {
+      "type": "timestamp"
+    }
+  }
+}

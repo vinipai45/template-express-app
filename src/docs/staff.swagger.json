@@ -1,0 +1,150 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Staff API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/staff/list": {
+      "get": {
+        "summary": "Get all staffs",
+        "tags": ["Staff"],
+        "responses": {
+          "200": { "description": "A list of staffs" }
+        }
+      }
+    },
+    "/api/staff/get-by-id/{id}": {
+      "get": {
+        "summary": "Get a staff by ID",
+        "tags": ["Staff"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Staff details" },
+          "404": { "description": "Not found" }
+        }
+      }
+    },
+    "/api/staff/create": {
+      "post": {
+        "summary": "Create a new staff",
+        "tags": ["Staff"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/StaffCreate" }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Staff created" }
+        }
+      }
+    },
+    "/api/staff/update/{id}": {
+      "put": {
+        "summary": "Update a staff",
+        "tags": ["Staff"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/StaffUpdate" }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Staff updated" }
+        }
+      }
+    },
+    "/api/staff/delete/{id}": {
+      "delete": {
+        "summary": "Delete a staff",
+        "tags": ["Staff"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Staff deleted" }
+        }
+      }
+    },
+    "/api/staff/enable/{id}": {
+      "patch": {
+        "summary": "Enable a deleted staff",
+        "tags": ["Staff"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Staff enabled" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Staff": {
+        "type": "object",
+        "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" },
+            "username": { "type": "string" },
+            "password": { "type": "string" },
+            "branch_id": { "type": "string", "enum": ["karkala", "udupi", "manipal"] },
+            "role": { "type": "string", "enum": ["staff", "admin", "dev"] },
+            "is_deleted": { "type": "boolean" },
+            "created_at": { "type": "string", "format": "date-time" },
+            "updated_at": { "type": "string", "format": "date-time" }
+        }
+      },
+      "StaffCreate": {
+        "type": "object",
+        "properties": {
+            "name": { "type": "string" },
+            "username": { "type": "string" },
+            "password": { "type": "string" },
+            "branch_id": { "type": "string", "enum": ["karkala", "udupi", "manipal"] },
+            "role": { "type": "string", "enum": ["staff", "admin", "dev"] }
+        }
+      },
+      "StaffUpdate": {
+        "type": "object",
+        "properties": {
+            "name": { "type": "string" },
+            "username": { "type": "string" },
+            "password": { "type": "string" },
+            "branch_id": { "type": "string", "enum": ["karkala", "udupi", "manipal"] },
+            "role": { "type": "string", "enum": ["staff", "admin", "dev"] }
+        }
+      }
+    }
+  }
+}
