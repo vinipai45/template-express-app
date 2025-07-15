@@ -1,7 +1,7 @@
 export function generateRoute(entity: string, pascal: string) {
   const content = `import { Router } from "express";
 import { ${pascal}Controller } from "../controllers/${entity}.controller";
-import { validate${pascal}Create, validate${pascal}Update } from "../validations/staff.validation";
+import { validate${pascal}Create, validate${pascal}Update } from "../validations/${entity}.validation";
 import asyncMiddleware from "../middlewares/async";
 
 const router = Router();
