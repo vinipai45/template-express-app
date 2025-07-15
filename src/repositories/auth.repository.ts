@@ -3,7 +3,7 @@ import { pool } from "../config/db";
 import { Staff } from "../models/staff.model";
 import { AUTH_QUERY } from "../queries/auth.query";
 import dotenv from "dotenv";
-import { LoginRepo } from "../types/auth.types";
+import { LoginRepo } from "../@types/auth.types";
 
 dotenv.config();
 

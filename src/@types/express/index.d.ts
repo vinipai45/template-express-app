@@ -1,6 +1,4 @@
-import { Staff } from "../models/staff.model";
-
-export {};
+import { Staff } from "../../models/staff.model";
 
 declare global {
   namespace Express {
@@ -9,3 +7,5 @@ declare global {
     }
   }
 }
+
+export {};

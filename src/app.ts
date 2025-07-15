@@ -6,7 +6,7 @@ import { HttpError } from "./utils/http.error";
 
 const app = express();
 app.use(express.json());
-app.use("/api/user", staffRoutes);
+app.use("/api/staff", staffRoutes);
 app.use("/api/auth", authRoutes);
 
 setupSwagger(app);
