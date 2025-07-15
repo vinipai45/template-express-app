@@ -28,7 +28,7 @@ ${mapRowToEntity}
     };
   }
 
-  async create(data: ${pascal}): Promise<${pascal}> {
+  create = (data: ${pascal}): Promise<${pascal}> =>{
     const id = uuidv4();
     data.id = id;
     const res = await pool.query(${ENTITY_QUERY}.CREATE, [
@@ -37,7 +37,7 @@ ${mapRowToEntity}
     return this.mapRowToEntity(res.rows[0]);
   }
 
-  async update(id: string, data: Partial<${pascal}>): Promise<${pascal} | null> {
+  update = (id: string, data: Partial<${pascal}>): Promise<${pascal} | null> => {
     const forbidden = ["id", "created_at", "updated_at", "is_deleted"];
     const keys = Object.keys(data).filter(k => !forbidden.includes(k));
     if (keys.length === 0) return null;

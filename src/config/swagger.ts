@@ -16,20 +16,23 @@ export const setupSwagger = (app: Express) => {
     paths: {},
     components: {
       schemas: {},
+      securitySchemes: {},
     },
   };
 
   for (const file of files) {
     const content = JSON.parse(fs.readFileSync(path.join(docsDir, file), "utf-8"));
 
-    // Merge paths
     if (content.paths) {
       Object.assign(mergedSwagger.paths, content.paths);
     }
 
-    // Merge components.schemas
     if (content.components?.schemas) {
       Object.assign(mergedSwagger.components.schemas, content.components.schemas);
+    }
+
+    if (content.components?.securitySchemes) {
+      Object.assign(mergedSwagger.components.securitySchemes, content.components.securitySchemes);
     }
   }
 

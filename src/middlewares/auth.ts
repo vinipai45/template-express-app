@@ -3,7 +3,6 @@ import { IncomingHttpHeaders } from "http";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { pool } from "../config/db";
-import { Staff } from "../models/staff.model";
 
 dotenv.config();
 
