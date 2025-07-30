@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { StaffController } from "../controllers/staff.controller";
 import { validateStaffCreate, validateStaffUpdate } from "../validations/staff.validation";
-import asyncMiddleware from "../middlewares/async";
+import asyncMiddleware from "../middlewares/async.middleware";
 
 const router = Router();
 const controller = new StaffController();

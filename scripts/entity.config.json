@@ -1,26 +1,11 @@
 {
-  "entity": "offertarget",
+  "entity": "product",
   "fields": {
     "id": {
       "type": "string"
     },
-    "type": {
+    "name": {
       "type": "string"
-    },
-    "target_id": {
-      "type": "string"
-    },
-    "machine_id": {
-      "type": "string"
-    },
-    "offer_id": {
-      "type": "string"
-    },
-    "max_uses": {
-      "type": "number"
-    },
-    "usage_count": {
-      "type": "number"
     },
     "is_deleted": {
       "type": "boolean"
