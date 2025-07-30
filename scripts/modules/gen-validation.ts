@@ -51,10 +51,11 @@ export const validate${pascal}Create = (req: Request, res: Response, next: NextF
     next();
   } catch (error) {
     return res.status(400).json({
-      error: "Bad Request",
-      issues: (error as any).errors?.map((e: any) => ({
+      success: false,
+      message: "Bad Request",
+      error: (error as any).errors?.map((e: any) => ({
         field: e.path?.join("."),
-        message: e.message
+        detail: e.message
       })) || [],
     });
   }
@@ -66,10 +67,11 @@ export const validate${pascal}Update = (req: Request, res: Response, next: NextF
     next();
   } catch (error) {
     return res.status(400).json({
-      error: "Bad Request",
-      issues: (error as any).errors?.map((e: any) => ({
+      success: false,
+      message: "Bad Request",
+      error: (error as any).errors?.map((e: any) => ({
         field: e.path?.join("."),
-        message: e.message
+        detail: e.message
       })) || [],
     });
   }

@@ -75,7 +75,7 @@ export function generateSwagger(entity: string, config: EntityConfig) {
           }
         },
         "responses": {
-          "201": { "description": "${pascal} created" }
+          "200": { "description": "${pascal} created" }
         }
       }
     },

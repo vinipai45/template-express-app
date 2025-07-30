@@ -4,10 +4,12 @@ import readline from "readline";
 import { Pool } from "pg";
 import dotenv from "dotenv";
 
-dotenv.config();
+// figure out which file to load
+const envFile = `.env.${process.env.NODE_ENV || "test"}`;
+dotenv.config({ path: path.resolve(process.cwd(), envFile) });
 
 const MIGRATIONS_DIR = path.resolve(__dirname, "../src/migrations");
-const dbUrl = process.env.DATABASE_LOCAL_URL;
+const dbUrl = process.env.DATABASE_URL;
 
 const ask = (question: string): Promise<string> => {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });

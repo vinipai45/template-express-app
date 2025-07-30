@@ -1,25 +1,26 @@
 {
-  "entity": "staff",
+  "entity": "offertarget",
   "fields": {
     "id": {
       "type": "string"
     },
-    "name": {
+    "type": {
       "type": "string"
     },
-    "username": {
+    "target_id": {
       "type": "string"
     },
-    "password": {
+    "machine_id": {
       "type": "string"
     },
-    "branch_id": {
-      "type": "enum",
-      "values": ["karkala", "udupi", "manipal"]
+    "offer_id": {
+      "type": "string"
     },
-    "role": {
-      "type": "enum",
-      "values": ["staff", "admin", "dev"]
+    "max_uses": {
+      "type": "number"
+    },
+    "usage_count": {
+      "type": "number"
     },
     "is_deleted": {
       "type": "boolean"
